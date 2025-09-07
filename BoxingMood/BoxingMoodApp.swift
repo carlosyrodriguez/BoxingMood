@@ -10,6 +10,7 @@ import SwiftData
 
 @main
 struct BoxingMoodApp: App {
+    @StateObject private var themeManager = ThemeManager()
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -26,6 +27,7 @@ struct BoxingMoodApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(themeManager)
         }
         .modelContainer(sharedModelContainer)
     }

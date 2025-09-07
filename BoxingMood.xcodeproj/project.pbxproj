@@ -6,11 +6,45 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0126D8942E6BEAF400BF8295 /* BoxingMood Watch App Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0126D8872E6BEAF300BF8295 /* BoxingMood Watch App Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0126D8922E6BEAF400BF8295 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 015A25A22D90E46C00ADE2D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0126D8862E6BEAF300BF8295;
+			remoteInfo = "BoxingMood Watch App Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0126D8982E6BEAF400BF8295 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				0126D8942E6BEAF400BF8295 /* BoxingMood Watch App Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0126D8872E6BEAF300BF8295 /* BoxingMood Watch App Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BoxingMood Watch App Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		015A25AA2D90E46C00ADE2D2 /* BoxingMood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxingMood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		0126D8882E6BEAF300BF8295 /* BoxingMood Watch App Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "BoxingMood Watch App Watch App";
+			sourceTree = "<group>";
+		};
 		015A25AC2D90E46C00ADE2D2 /* BoxingMood */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = BoxingMood;
@@ -19,6 +53,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0126D8842E6BEAF300BF8295 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		015A25A72D90E46C00ADE2D2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -33,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				015A25AC2D90E46C00ADE2D2 /* BoxingMood */,
+				0126D8882E6BEAF300BF8295 /* BoxingMood Watch App Watch App */,
 				015A25AB2D90E46C00ADE2D2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				015A25AA2D90E46C00ADE2D2 /* BoxingMood.app */,
+				0126D8872E6BEAF300BF8295 /* BoxingMood Watch App Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,6 +91,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0126D8862E6BEAF300BF8295 /* BoxingMood Watch App Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0126D8952E6BEAF400BF8295 /* Build configuration list for PBXNativeTarget "BoxingMood Watch App Watch App" */;
+			buildPhases = (
+				0126D8832E6BEAF300BF8295 /* Sources */,
+				0126D8842E6BEAF300BF8295 /* Frameworks */,
+				0126D8852E6BEAF300BF8295 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				0126D8882E6BEAF300BF8295 /* BoxingMood Watch App Watch App */,
+			);
+			name = "BoxingMood Watch App Watch App";
+			packageProductDependencies = (
+			);
+			productName = "BoxingMood Watch App Watch App";
+			productReference = 0126D8872E6BEAF300BF8295 /* BoxingMood Watch App Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
 		015A25A92D90E46C00ADE2D2 /* BoxingMood */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 015A25BA2D90E46C00ADE2D2 /* Build configuration list for PBXNativeTarget "BoxingMood" */;
@@ -55,10 +120,12 @@
 				015A25A62D90E46C00ADE2D2 /* Sources */,
 				015A25A72D90E46C00ADE2D2 /* Frameworks */,
 				015A25A82D90E46C00ADE2D2 /* Resources */,
+				0126D8982E6BEAF400BF8295 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0126D8932E6BEAF400BF8295 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				015A25AC2D90E46C00ADE2D2 /* BoxingMood */,
@@ -80,6 +147,9 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
+					0126D8862E6BEAF300BF8295 = {
+						CreatedOnToolsVersion = 16.2;
+					};
 					015A25A92D90E46C00ADE2D2 = {
 						CreatedOnToolsVersion = 16.2;
 					};
@@ -100,11 +170,19 @@
 			projectRoot = "";
 			targets = (
 				015A25A92D90E46C00ADE2D2 /* BoxingMood */,
+				0126D8862E6BEAF300BF8295 /* BoxingMood Watch App Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0126D8852E6BEAF300BF8295 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		015A25A82D90E46C00ADE2D2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,6 +193,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0126D8832E6BEAF300BF8295 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		015A25A62D90E46C00ADE2D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,7 +209,79 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		0126D8932E6BEAF400BF8295 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0126D8862E6BEAF300BF8295 /* BoxingMood Watch App Watch App */;
+			targetProxy = 0126D8922E6BEAF400BF8295 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		0126D8962E6BEAF400BF8295 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BoxingMood Watch App Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 9J4G4ZN297;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "BoxingMood Watch App";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "BoxingMood needs to read your heart rate and workout data to display during your session.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "BoxingMood needs to write workout data to track your boxing sessions in the Health app.";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = carlosyrodriguez.BoxingMood;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = carlosyrodriguez.BoxingMood.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		0126D8972E6BEAF400BF8295 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BoxingMood Watch App Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 9J4G4ZN297;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "BoxingMood Watch App";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "BoxingMood needs to read your heart rate and workout data to display during your session.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "BoxingMood needs to write workout data to track your boxing sessions in the Health app.";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = carlosyrodriguez.BoxingMood;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = carlosyrodriguez.BoxingMood.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Release;
+		};
 		015A25B82D90E46C00ADE2D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -249,11 +406,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BoxingMood/BoxingMood.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BoxingMood/Preview Content\"";
+				DEVELOPMENT_TEAM = 9J4G4ZN297;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "BoxingMood needs to read your heart rate and workout data to display during your session.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "BoxingMood needs to write workout data to track your boxing sessions in the Health app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -277,11 +438,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BoxingMood/BoxingMood.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BoxingMood/Preview Content\"";
+				DEVELOPMENT_TEAM = 9J4G4ZN297;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "BoxingMood needs to read your heart rate and workout data to display during your session.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "BoxingMood needs to write workout data to track your boxing sessions in the Health app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -303,6 +468,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0126D8952E6BEAF400BF8295 /* Build configuration list for PBXNativeTarget "BoxingMood Watch App Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0126D8962E6BEAF400BF8295 /* Debug */,
+				0126D8972E6BEAF400BF8295 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		015A25A52D90E46C00ADE2D2 /* Build configuration list for PBXProject "BoxingMood" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
