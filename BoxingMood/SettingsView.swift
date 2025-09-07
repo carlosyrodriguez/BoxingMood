@@ -93,10 +93,13 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
-}//
+        .environmentObject(ThemeManager())
+}
 //  SettingsView.swift
 //  BoxingMood
 //
 //  Created by Los on 9/5/25.
 //
+//
+
 

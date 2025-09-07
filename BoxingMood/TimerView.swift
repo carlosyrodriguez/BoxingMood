@@ -123,4 +123,5 @@ struct TimerButton: ViewModifier {
 // MARK: - Preview
 #Preview {
     ContentView()
+        .environmentObject(ThemeManager())
 }

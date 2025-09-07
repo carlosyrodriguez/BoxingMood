@@ -187,4 +187,5 @@ struct WorkoutCard: View {
 
 #Preview {
     ContentView()
+        .environmentObject(ThemeManager())
 }

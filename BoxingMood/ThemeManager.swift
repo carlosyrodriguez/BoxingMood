@@ -4,8 +4,8 @@ import SwiftUI
 struct Theme: Identifiable, Equatable {
 	var name: String
 	var id: String { name }
-	var primary: Color      // Used for prominent accents (originally red)
-	var secondary: Color    // Used for secondary accents (originally yellow)
+	var primary: Color      // Prominent accents
+	var secondary: Color    // Secondary accents 
 	var background: Color   // App background
 	var text: Color         // General text color
 	var cardBackground: Color
@@ -32,12 +32,13 @@ final class ThemeManager: ObservableObject {
 			cardBorder: Color.white.opacity(0.2)
 		)
 
-		self.themes = [defaultTheme]
+		// Build initial themes locally first to avoid capturing `self` in closures
+		let initialThemes = [defaultTheme]
+		self.themes = initialThemes
 
 		let saved = UserDefaults.standard.string(forKey: "SelectedThemeName")
-		self.selectedThemeName = saved.flatMap { name in
-			themes.first(where: { $0.name == name })?.name
-		} ?? defaultTheme.name
+		let selected = initialThemes.first(where: { $0.name == saved })?.name ?? defaultTheme.name
+		self.selectedThemeName = selected
 	}
 
 	var currentTheme: Theme {
