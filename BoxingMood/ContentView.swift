@@ -1,9 +1,6 @@
 import SwiftUI
 
-// NOTE: This file assumes TimerView.swift, HealthKitManager.swift,
-// and SettingsView.swift exist in your project.
-
-// Data structure for an inspirational quote
+// Data structure for an inspirational quotes
 struct Quote {
     let text: String
     let author: String
@@ -33,74 +30,86 @@ struct ContentView: View {
         _inspirationalQuote = State(initialValue: Self.quotes.randomElement()!)
     }
 
+    @State private var selectedTab: String = "Fight"
+
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
+        ZStack(alignment: .bottom) {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
 
-                // MARK: - Header with Title, Quote, and Avatar
-                HStack(alignment: .top) {
-                    VStack(alignment: .leading, spacing: 5) {
-                        // "Boxing Mood" text with red background
-                        Text("Boxing Mood")
-                            .font(.custom("Impact", size: 36))
-                            .fontWeight(.bold)
-                            .foregroundColor(themeManager.currentTheme.secondary)
-                            .padding(.vertical, 4)
-                            .padding(.horizontal, 8)
-                            .background(themeManager.currentTheme.primary)
-                            .cornerRadius(5)
-                            .shadow(color: .black.opacity(0.3), radius: 3, x: 2, y: 2)
-                        
-                        VStack(alignment: .leading) {
-                            Text("\"\(inspirationalQuote.text)\"")
-                                .font(.custom("AmericanTypewriter", size: 15))
-                                .italic()
-                            Text("- \(inspirationalQuote.author)")
-                                .font(.custom("AmericanTypewriter", size: 12))
+                    // MARK: - Header with Title, Quote, and Avatar
+                    HStack(alignment: .top) {
+                        VStack(alignment: .leading, spacing: 5) {
+                            // "Boxing Mood" text with red background
+                            Text("Fight Fit")
+                                .font(.custom("Impact", size: 36))
                                 .fontWeight(.bold)
-                                .frame(maxWidth: .infinity, alignment: .trailing)
+                                .foregroundColor(themeManager.currentTheme.secondary)
+                                .padding(.vertical, 4)
+                                .padding(.horizontal, 8)
+                                .background(themeManager.currentTheme.primary)
+                                .cornerRadius(5)
+                                .shadow(color: .black.opacity(0.3), radius: 3, x: 2, y: 2)
+                            
+                            VStack(alignment: .leading) {
+                                Text("\"\(inspirationalQuote.text)\"")
+                                    .font(.custom("AmericanTypewriter", size: 15))
+                                    .italic()
+                                Text("- \(inspirationalQuote.author)")
+                                    .font(.custom("AmericanTypewriter", size: 12))
+                                    .fontWeight(.bold)
+                                    .frame(maxWidth: .infinity, alignment: .trailing)
+                            }
+                            .foregroundColor(themeManager.currentTheme.text.opacity(0.9))
+                            .padding(.top, 2)
+
                         }
-                        .foregroundColor(themeManager.currentTheme.text.opacity(0.9))
-                        .padding(.top, 2)
+                        Spacer()
 
+                        Button(action: { showingSettings = true }) {
+                            Image(systemName: "person.circle.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(themeManager.currentTheme.primary)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(themeManager.currentTheme.primary, lineWidth: 2))
+                        }
+                        .sheet(isPresented: $showingSettings) {
+                            SettingsView()
+                                .environmentObject(themeManager)
+                        }
                     }
-                    Spacer()
+                    .padding(.bottom, 10)
 
-                    Button(action: { showingSettings = true }) {
-                        Image(systemName: "person.circle.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 50, height: 50)
-                            .foregroundColor(themeManager.currentTheme.primary)
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(themeManager.currentTheme.primary, lineWidth: 2))
+                    // MARK: - Timer Card
+                    TimerView()
+                        .frame(maxWidth: .infinity)
+                        .modifier(CardBackground())
+
+                    // MARK: - Health Stats Cards
+                    HStack(spacing: 16) {
+                        StatCard(icon: "heart.fill", label: "Heart Rate", value: "\(Int(healthManager.heartRate)) BPM", color: themeManager.currentTheme.primary)
+                        StatCard(icon: "flame.fill", label: "Calories", value: "\(Int(healthManager.activeCalories)) kCal", color: themeManager.currentTheme.secondary)
                     }
-                    .sheet(isPresented: $showingSettings) {
-                        SettingsView()
-                            .environmentObject(themeManager)
-                    }
+
+                    // MARK: - Start Workout Card
+                    WorkoutCard()
+
                 }
-                .padding(.bottom, 10)
+                .padding()
 
-                // MARK: - Timer Card
-                TimerView()
-                    .frame(maxWidth: .infinity)
-                    .modifier(CardBackground())
-
-                // MARK: - Health Stats Cards
-                HStack(spacing: 16) {
-                    StatCard(icon: "heart.fill", label: "Heart Rate", value: "\(Int(healthManager.heartRate)) BPM", color: themeManager.currentTheme.primary)
-                    StatCard(icon: "flame.fill", label: "Calories", value: "\(Int(healthManager.activeCalories)) kCal", color: themeManager.currentTheme.secondary)
-                }
-
-                // MARK: - Start Workout Card
-                WorkoutCard()
-
+                // spacer so content doesn't hide behind floating tab bar
+                Spacer().frame(height: 120)
             }
-            .padding()
+            .background(themeManager.currentTheme.background.edgesIgnoringSafeArea(.all))
+            .preferredColorScheme(.light)
+
+            // Floating Tab Bar
+            FloatingTabBar(selected: $selectedTab)
+                .padding(.bottom, 20)
+                .padding(.horizontal, 16)
         }
-    .background(themeManager.currentTheme.background.edgesIgnoringSafeArea(.all))
-    .preferredColorScheme(.light)
     }
 }
 
@@ -181,6 +190,44 @@ struct WorkoutCard: View {
             }
         }
         .modifier(CardBackground())
+    }
+}
+
+// MARK: - Floating Tab Bar
+struct FloatingTabBar: View {
+    @EnvironmentObject private var themeManager: ThemeManager
+    @Binding var selected: String
+
+    var body: some View {
+        HStack(spacing: 32) {
+            tabButton(title: "Fight", system: "bolt.fill")
+            tabButton(title: "Events", system: "calendar")
+            tabButton(title: "More", system: "ellipsis")
+        }
+        .padding(.vertical, 12)
+        .padding(.horizontal, 18)
+        .background(.ultraThinMaterial)
+        .background(RoundedRectangle(cornerRadius: 30).fill(themeManager.currentTheme.cardBackground).opacity(0.9))
+        .overlay(RoundedRectangle(cornerRadius: 30).stroke(themeManager.currentTheme.cardBorder, lineWidth: 1))
+        .shadow(color: Color.black.opacity(0.25), radius: 10, x: 0, y: 6)
+        .frame(maxWidth: .infinity)
+        .clipShape(RoundedRectangle(cornerRadius: 30))
+    }
+
+    @ViewBuilder
+    private func tabButton(title: String, system: String) -> some View {
+        Button(action: { selected = title }) {
+            VStack(spacing: 4) {
+                Image(systemName: system)
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundColor(selected == title ? themeManager.currentTheme.secondary : themeManager.currentTheme.text.opacity(0.8))
+                Text(title)
+                    .font(.system(size: 12, weight: .semibold))
+                    .foregroundColor(selected == title ? themeManager.currentTheme.secondary : themeManager.currentTheme.text.opacity(0.8))
+            }
+            .padding(.horizontal, 6)
+        }
+        .buttonStyle(.plain)
     }
 }
 
