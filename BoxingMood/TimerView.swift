@@ -76,12 +76,12 @@ struct TimerView: View {
 
             // MARK: - Round / Rest Title
             Text(isResting ? "REST" : "ROUND \(currentRound)")
-                .font(.custom("Impact", size: 36))
+                .font(.system(size: 36, weight: .black, design: .default))
                 .foregroundColor(isResting ? themeManager.currentTheme.text.opacity(0.8) : themeManager.currentTheme.secondary)
 
             // MARK: - Time Display
             Text(String(format: "%02d:%02d", timeRemaining / 60, timeRemaining % 60))
-                .font(.custom("Impact", size: 80))
+                .font(.system(size: 80, weight: .black, design: .default))
                 .foregroundColor(themeManager.currentTheme.primary)
 
             // MARK: - Control Buttons
@@ -97,7 +97,7 @@ struct TimerView: View {
                             foregroundColor: themeManager.currentTheme.secondary
                         ))
                 }
-                .onChange(of: timerActive) { isActive in
+                .onChange(of: timerActive) { isActive, _ in
                     // This logic ensures the animation state is tied directly to the timer.
                     if isActive {
                         // Start animation loop when timer becomes active.
@@ -341,7 +341,7 @@ struct TimerButton: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .font(.custom("Impact", size: 18))
+            .font(.system(size: 18, weight: .black, design: .default))
             .padding(.vertical, 12)
             .frame(width: 120)
             .background(backgroundColor.opacity(animationOpacity ?? 1.0))
